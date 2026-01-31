@@ -10,10 +10,19 @@ export const fetchUsers = async (): Promise<User[]> => {
   return data;
 };
 
-export const fetchUserDetails = async (userId: User["id"]): Promise<User> => {
+export const fetchUserDetails = async (
+  userId: User["id"],
+  signal: AbortSignal,
+): Promise<User> => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${userId}`,
+    { signal },
   );
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch user details: ${response.status}`);
+  }
+
   const data = await response.json();
 
   // Simulate network delay

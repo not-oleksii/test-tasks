@@ -4,7 +4,7 @@ import { useUserDetails } from "../../../hooks/useUserDetails";
 import { createPortal } from "react-dom";
 
 export const UserDetails = ({ userId, onClose }: UserDetailsModalProps) => {
-  const [user, error, loading] = useUserDetails(userId);
+  const [user, error, loading, refresh] = useUserDetails(userId);
 
   const onCloseClick = useCallback(() => {
     onClose();
@@ -68,6 +68,9 @@ export const UserDetails = ({ userId, onClose }: UserDetailsModalProps) => {
             <p>Email: {user?.email}</p>
             <p>Phone: {user?.phone}</p>
             <p>Website: {user?.website}</p>
+            <button onClick={refresh} disabled={loading}>
+              Refresh details
+            </button>
           </>
         )}
       </div>
