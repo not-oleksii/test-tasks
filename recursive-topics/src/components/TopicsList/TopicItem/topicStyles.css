@@ -1,0 +1,43 @@
+.topic {
+  min-width: 200px;
+}
+
+.topic_content {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  border-radius: 30px;
+  padding: 6px 16px;
+  border: 1px solid #0d1164;
+  display: flex;
+  flex-direction: column;
+
+  .subtopic_counter {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    background-color: #ea2264;
+    border-radius: 30px;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+.subtopic {
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+.active {
+  background-color: #f78d60;
+}
+
+.inactive {
+  background-color: #640d5f;
+}
+
+.clickable {
+  cursor: pointer;
+}
